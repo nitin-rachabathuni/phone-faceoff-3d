@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Phone Face-off 3D — iPhone Duo vs Pixel 11 Pro vs Galaxy S26</title>
+<meta name="description" content="A developer's 3D CSS scorecard: iPhone Duo vs Pixel 11 Pro vs Galaxy S26. Pure HTML + CSS + a little JS. No frameworks." />
+<meta property="og:title" content="Phone Face-off 3D — a developer's scorecard" />
+<meta property="og:description" content="iPhone Duo vs Pixel 11 Pro vs Galaxy S26 in pure CSS 3D. Opinion included." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="stage" id="stage">
+  <header class="head">
+    <p class="kicker">Oct 2026 · a developer's scorecard · pure HTML + CSS 3D</p>
+    <h1>Three flagships. One honest take.</h1>
+    <p class="sub">Drag or hover the cards. Tap a card to flip it. Numbers from public spec sheets; verdicts are mine.</p>
+  </header>
+
+  <section class="deck" id="deck" aria-label="Phone comparison cards">
+
+    <article class="card" data-phone="iphone" style="--hue: 220">
+      <div class="inner">
+        <div class="face front">
+          <div class="phone phone-fold">
+            <div class="screen"></div>
+            <div class="hinge"></div>
+            <div class="screen outer"></div>
+          </div>
+          <h2>iPhone Duo</h2>
+          <p class="tag">Apple's first fold</p>
+          <ul class="specs">
+            <li><span>Price</span><b>$1,999</b></li>
+            <li><span>Inner display</span><b>7.6"</b></li>
+            <li><span>Weight</span><b>254 g</b></li>
+            <li><span>Chip</span><b>A20 Pro</b></li>
+            <li><span>Battery</span><b>5,800 mAh</b></li>
+          </ul>
+          <p class="hint">tap to flip</p>
+        </div>
+        <div class="face back">
+          <h3>My take</h3>
+          <p>A beautiful object with a two-thousand-dollar question mark. If your apps are not ready for the fold, your users will see your layout break before they see the hinge.</p>
+          <p class="score">Dev score <b>7 / 10</b></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="card hero" data-phone="pixel" style="--hue: 150">
+      <div class="inner">
+        <div class="face front">
+          <div class="phone">
+            <div class="screen"></div>
+            <div class="bar"></div>
+          </div>
+          <h2>Pixel 11 Pro</h2>
+          <p class="tag">The one I carry</p>
+          <ul class="specs">
+            <li><span>Price</span><b>$899 – 1,099</b></li>
+            <li><span>Display</span><b>6.3" · 3,600 nits</b></li>
+            <li><span>Weight</span><b>204 g</b></li>
+            <li><span>Chip</span><b>Tensor G6</b></li>
+            <li><span>Battery</span><b>4,850 mAh</b></li>
+            <li><span>Updates</span><b>7 years</b></li>
+          </ul>
+          <p class="hint">tap to flip</p>
+        </div>
+        <div class="face back">
+          <h3>My take</h3>
+          <p>Slower chip on paper. Does not matter for the things I do all day: camera, maps, Gemini on device, clean Android, and a 5x zoom I actually use. Seven years of updates is the real spec.</p>
+          <p class="score">Dev score <b>9 / 10</b></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-phone="galaxy" style="--hue: 275">
+      <div class="inner">
+        <div class="face front">
+          <div class="phone">
+            <div class="screen"></div>
+            <div class="pill"></div>
+          </div>
+          <h2>Galaxy S26</h2>
+          <p class="tag">Light, fast, cheaper</p>
+          <ul class="specs">
+            <li><span>Price</span><b>$800 – 900</b></li>
+            <li><span>Display</span><b>6.2"</b></li>
+            <li><span>Weight</span><b>167 g</b></li>
+            <li><span>Chip</span><b>SD 8 Elite Gen 5</b></li>
+            <li><span>Battery</span><b>4,300 mAh</b></li>
+            <li><span>Updates</span><b>7 years</b></li>
+          </ul>
+          <p class="hint">tap to flip</p>
+        </div>
+        <div class="face back">
+          <h3>My take</h3>
+          <p>The sensible flagship. Fastest chip, lightest hand feel, best price. If you game or you hate heavy phones, stop reading and buy this. I still miss the Pixel camera.</p>
+          <p class="score">Dev score <b>8 / 10</b></p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <footer class="foot">
+    <p><strong>Verdict:</strong> Pixel for camera + clean software. Galaxy for speed + weight + price. iPhone Duo only if you want the fold more than the money.</p>
+    <p class="by">Built by <a href="https://www.nitin-rachabathuni.com">Nitin Rachabathuni</a> · <a href="https://github.com/nitin-rachabathuni/phone-faceoff-3d">source</a> · <a href="https://topmate.io/nitin_rachabathuni">mentorship &amp; guides</a></p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
