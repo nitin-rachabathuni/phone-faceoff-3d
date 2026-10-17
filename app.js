@@ -32,4 +32,26 @@ if (new URLSearchParams(location.search).get('demo') === '1') {
   };
   step();
   setInterval(step, 3400);
+
+  // On-page captions for the reel (timings match reel_script voiceover).
+  const caps = [
+    [0.3, 4.8, 'Three flagships.', 'One honest take.'],
+    [4.8, 13.5, 'iPhone Duo. $1,999. Gorgeous.', 'Not fold-ready? Users see your broken layout first.'],
+    [13.5, 24.5, 'Pixel 11 Pro. Slower chip. Best camera.', '7 years of updates. The one I carry.'],
+    [24.5, 31.5, 'Galaxy S26. Fastest, lightest, cheapest.', 'Gamers, just buy it.'],
+    [31.5, 41, 'Pure CSS 3D. No framework.', 'Link in bio. Fork it.'],
+  ];
+  const box = document.createElement('div');
+  box.className = 'caption';
+  box.innerHTML = '<b></b><span></span>';
+  document.body.appendChild(box);
+  const t0 = performance.now();
+  const tick = () => {
+    const t = (performance.now() - t0) / 1000;
+    const c = caps.find(([a, b]) => t >= a && t < b);
+    if (c) { box.firstChild.textContent = c[2]; box.lastChild.textContent = c[3]; box.classList.add('on'); }
+    else box.classList.remove('on');
+    requestAnimationFrame(tick);
+  };
+  tick();
 }
