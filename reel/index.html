@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Reel: iPhone Duo vs Pixel 11 Pro vs Galaxy S26</title>
+<style>
+  :root { --acc: #ffd166; --ink: #fff; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000;
+    font-family: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif; color: var(--ink); }
+  .scene { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+  .scene.on { opacity: 1; }
+  .photo { position: absolute; inset: 0; background-size: cover; background-position: center;
+    transform: scale(1.06); }
+  .on .photo.kb { animation: kb 3.2s ease-out forwards; }
+  @keyframes kb { from { transform: scale(1.18); } to { transform: scale(1.04); } }
+  .scrim { position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 55%, rgba(0,0,0,.88) 100%); }
+  .copy { position: absolute; left: 72px; right: 72px; }
+  .copy.bottom { bottom: 220px; }
+  .copy.center { top: 50%; transform: translateY(-50%); }
+  h1 { margin: 0; font-size: 128px; line-height: .98; letter-spacing: -.035em; font-weight: 800; }
+  h1 .acc { color: var(--acc); }
+  h2 { margin: 0 0 18px; font-size: 92px; line-height: 1; letter-spacing: -.03em; font-weight: 800; }
+  .nums { display: flex; gap: 22px; margin-top: 26px; flex-wrap: wrap; }
+  .nums span { font-size: 40px; font-weight: 700; padding: 14px 22px; border-radius: 16px;
+    background: rgba(255,255,255,.14); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.18); }
+  .nums span b { color: var(--acc); font-weight: 800; }
+  .kicker { font-size: 34px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 30px; font-weight: 600; }
+  .small { font-size: 44px; line-height: 1.25; color: rgba(255,255,255,.85); margin-top: 28px; font-weight: 500; }
+  .on .pop { animation: pop .45s cubic-bezier(.2,.9,.2,1) both; }
+  .on .pop.d1 { animation-delay: .12s; } .on .pop.d2 { animation-delay: .24s; } .on .pop.d3 { animation-delay: .36s; }
+  @keyframes pop { from { opacity: 0; transform: translateY(40px) scale(.96); } to { opacity: 1; transform: none; } }
+  .bar { position: absolute; left: 72px; right: 72px; top: 130px; height: 6px; background: rgba(255,255,255,.18); border-radius: 3px; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--acc); border-radius: 3px; }
+  .tag { position: absolute; left: 72px; top: 160px; font-size: 30px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+  .sign { position: absolute; left: 72px; right: 72px; bottom: 150px; display: flex; align-items: center; gap: 28px; }
+  .sign .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--acc); }
+  .sign .who { font-size: 38px; font-weight: 700; }
+  .sign .who small { display: block; font-size: 28px; font-weight: 500; color: rgba(255,255,255,.7); margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<div class="bar"><i id="prog"></i></div>
+<div class="tag">Oct 2026 · developer's take</div>
+
+<!-- 1 hook -->
+<section class="scene" data-t="0">
+  <div class="copy center">
+    <h1 class="pop">I'd skip the<br><span class="acc">$1,999</span><br>iPhone.</h1>
+    <p class="small pop d1">Here is the spec that decides it.</p>
+  </div>
+</section>
+
+<!-- 2 iPhone photo -->
+<section class="scene" data-t="2.6">
+  <div class="photo kb" style="background-image:url(../assets/iphone-duo-colors.jpg); background-color:#f4f4f4; background-size: 130%; background-position: 50% 42%;"></div>
+  <div class="scrim"></div>
+  <div class="copy bottom">
+    <h2 class="pop">iPhone Duo</h2>
+    <div class="nums">
+      <span class="pop d1"><b>$1,999</b></span><span class="pop d2"><b>254</b> g</span><span class="pop d3"><b>7.6"</b> fold</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3 iPhone take -->
+<section class="scene" data-t="5.6">
+  <div class="copy center">
+    <h1 class="pop">Gorgeous.</h1>
+    <p class="small pop d1">But if your app is not fold-ready, users meet your <span style="color:var(--acc)">broken layout</span> before the hinge.</p>
+  </div>
+</section>
+
+<!-- 4 Galaxy photo -->
+<section class="scene" data-t="8.6">
+  <div class="photo kb" style="background-image:url(../assets/galaxy-s26.jpg); background-size: 175%; background-position: 50% 45%;"></div>
+  <div class="scrim"></div>
+  <div class="copy bottom">
+    <h2 class="pop">Galaxy S26</h2>
+    <div class="nums">
+      <span class="pop d1"><b>$800</b></span><span class="pop d2"><b>167</b> g</span><span class="pop d3"><b>fastest</b> chip</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 Galaxy take -->
+<section class="scene" data-t="11.4">
+  <div class="copy center">
+    <h1 class="pop">Lightest.<br>Fastest.<br><span class="acc">Cheapest.</span></h1>
+    <p class="small pop d1">Gamers: stop watching, buy it.</p>
+  </div>
+</section>
+
+<!-- 6 Pixel photo -->
+<section class="scene" data-t="14.0">
+  <div class="photo kb" style="background-image:url(../assets/pixel-11-pro.jpg); background-color:#f2f2f2; background-size: 150%; background-position: 50% 48%;"></div>
+  <div class="scrim"></div>
+  <div class="copy bottom">
+    <h2 class="pop">Pixel 11 Pro</h2>
+    <div class="nums">
+      <span class="pop d1"><b>$899</b></span><span class="pop d2"><b>7 yrs</b> updates</span><span class="pop d3"><b>best</b> camera</span>
+    </div>
+  </div>
+</section>
+
+<!-- 7 Pixel take -->
+<section class="scene" data-t="17.0">
+  <div class="copy center">
+    <h1 class="pop">Slower chip.<br><span class="acc">Does not matter.</span></h1>
+    <p class="small pop d1">Updates are the real spec. This is the one I carry.</p>
+  </div>
+</section>
+
+<!-- 8 verdict + sign -->
+<section class="scene" data-t="20.0">
+  <div class="copy center">
+    <p class="kicker pop">Verdict</p>
+    <h1 class="pop d1" style="font-size:100px">Pixel for the camera.<br>Galaxy for the price.<br><span class="acc">Duo only for the fold.</span></h1>
+    <p class="small pop d2">Which one are you carrying into 2027?</p>
+  </div>
+  <div class="sign pop d3">
+    <div class="dot"></div>
+    <div class="who">Nitin Rachabathuni<small>full-stack + agentic AI · ships MVPs in 48h</small></div>
+  </div>
+</section>
+
+<script>
+  const scenes = [...document.querySelectorAll('.scene')];
+  const total = Number(new URLSearchParams(location.search).get('len') || 23);
+  const t0 = performance.now();
+  const prog = document.getElementById('prog');
+  function tick() {
+    const t = (performance.now() - t0) / 1000;
+    let cur = scenes[0];
+    for (const s of scenes) if (t >= Number(s.dataset.t)) cur = s;
+    scenes.forEach((s) => s.classList.toggle('on', s === cur));
+    prog.style.width = Math.min(100, (t / total) * 100) + '%';
+    requestAnimationFrame(tick);
+  }
+  tick();
+</script>
+</body>
+</html>
