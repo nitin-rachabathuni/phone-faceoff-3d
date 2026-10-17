@@ -10,7 +10,8 @@ Spec sheets are boring. Opinions are useful. This is both, on one page, with no 
 
 - CSS `perspective` + `preserve-3d` cards
 - Pointer tilt, click to flip
-- `?demo=1` auto-plays the flips (used to record the reel)
+- `?demo=1` auto-plays the flips
+- `?reel=1` vertical 1080x1920 layout with a timed script + captions (used to record the Instagram reel)
 
 ## Run
 
