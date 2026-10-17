@@ -112,6 +112,33 @@ h1 { font-size: clamp(28px, 5vw, 52px); margin: 0 0 12px; line-height: 1.05; let
 .caption b { font-size: 26px; margin-bottom: 6px; }
 .caption span { font-size: 19px; color: #e8ebf2; }
 
+/* reel layout: 1080x1920 recording, single column, big type */
+body.reel .stage { max-width: 940px; padding: 70px 40px 120px; }
+body.reel .kicker { font-size: 22px; }
+body.reel h1 { font-size: 84px; }
+body.reel .sub { font-size: 30px; }
+body.reel .deck { grid-template-columns: 1fr; gap: 90px; max-width: 760px; margin: 60px auto 0; }
+body.reel .card { aspect-ratio: 3 / 4.2; }
+body.reel .face { padding: 44px; border-radius: 36px; overflow: hidden; }
+body.reel .face h2 { font-size: 54px; margin-top: 24px; }
+body.reel .face h3 { font-size: 24px; }
+body.reel .tag { font-size: 28px; margin-bottom: 28px; }
+body.reel .specs { gap: 16px; }
+body.reel .specs li { font-size: 30px; padding-bottom: 12px; }
+body.reel .hint { font-size: 20px; }
+body.reel .back p { font-size: 38px; line-height: 1.45; }
+body.reel .score { font-size: 30px; }
+body.reel .score b { font-size: 48px; }
+body.reel .phone { width: 150px; height: 290px; border-radius: 34px; }
+body.reel .phone-fold { width: 230px; }
+body.reel .phone .bar { top: 26px; height: 34px; }
+body.reel .phone .pill { width: 30px; height: 92px; left: 20px; top: 26px; }
+body.reel .foot { font-size: 30px; margin-top: 90px; }
+body.reel .by { font-size: 24px; }
+body.reel .caption { bottom: 7vh; }
+body.reel .caption b { font-size: 48px; padding: 12px 24px; border-radius: 18px; }
+body.reel .caption span { font-size: 36px; padding: 10px 22px; border-radius: 16px; }
+
 .foot { margin-top: 40px; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .foot strong { color: var(--ink); }
 .foot a { color: var(--ink); }
