@@ -16,8 +16,10 @@ cards.forEach((card) => {
   card.addEventListener('click', () => card.classList.toggle('flipped'));
 });
 
-// Demo mode for recording: ?demo=1 auto-tilts and flips cards in sequence.
-if (new URLSearchParams(location.search).get('demo') === '1') {
+const params = new URLSearchParams(location.search);
+
+// Demo mode: ?demo=1 auto-tilts and flips cards in sequence (for GIFs / hover-less devices).
+if (params.get('demo') === '1' && params.get('reel') !== '1') {
   const seq = ['iphone', 'pixel', 'galaxy'];
   let i = 0;
   const step = () => {
@@ -32,8 +34,28 @@ if (new URLSearchParams(location.search).get('demo') === '1') {
   };
   step();
   setInterval(step, 3400);
+}
 
-  // On-page captions for the reel (timings match reel_script voiceover).
+// Reel mode: ?reel=1 -> vertical layout, timeline scroll + flips + captions synced to the voiceover.
+if (params.get('reel') === '1') {
+  document.body.classList.add('reel');
+  const at = (s, fn) => setTimeout(fn, s * 1000);
+  const go = (key) => {
+    const c = document.querySelector(`[data-phone="${key}"]`);
+    c.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    at(1.1, () => { c.style.setProperty('--ry', '12deg'); c.style.setProperty('--rx', '-5deg'); });
+    at(2.2, () => c.classList.add('flipped'));
+    at(2.6, () => { c.style.setProperty('--ry', '0deg'); c.style.setProperty('--rx', '0deg'); });
+  };
+  at(4.6, () => go('iphone'));
+  at(13.3, () => go('pixel'));
+  at(24.3, () => go('galaxy'));
+  at(31.3, () => {
+    cards.forEach((x) => x.classList.remove('flipped'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // On-page captions (timings match reel_script.txt voiceover).
   const caps = [
     [0.3, 4.8, 'Three flagships.', 'One honest take.'],
     [4.8, 13.5, 'iPhone Duo. $1,999. Gorgeous.', 'Not fold-ready? Users see your broken layout first.'],
