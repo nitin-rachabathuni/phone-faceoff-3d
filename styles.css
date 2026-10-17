@@ -1,0 +1,104 @@
+:root {
+  --bg: #0b0d12;
+  --ink: #e8ebf2;
+  --muted: #9aa3b5;
+  --card: #141824;
+  --edge: rgba(255,255,255,.08);
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(80,120,255,.18), transparent 60%),
+    radial-gradient(800px 500px at 90% 110%, rgba(120,255,180,.12), transparent 60%),
+    var(--bg);
+}
+.stage { max-width: 1200px; margin: 0 auto; padding: 48px 20px 64px; }
+.head { text-align: center; margin-bottom: 36px; }
+.kicker { color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-size: 12px; margin: 0 0 10px; }
+h1 { font-size: clamp(28px, 5vw, 52px); margin: 0 0 12px; line-height: 1.05; letter-spacing: -.02em; }
+.sub { color: var(--muted); margin: 0; font-size: 16px; }
+
+.deck {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  perspective: 1600px;
+  perspective-origin: 50% 40%;
+}
+@media (max-width: 860px) {
+  .deck { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 3 / 4.6;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+  cursor: pointer;
+  --rx: 0deg; --ry: 0deg;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
+}
+.card.hero { transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(30px) scale(1.03); }
+.card.flipped .inner { transform: rotateY(180deg); }
+
+.inner {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  border-radius: 22px;
+  background:
+    linear-gradient(160deg, hsla(var(--hue), 80%, 60%, .22), transparent 45%),
+    var(--card);
+  border: 1px solid var(--edge);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  padding: 22px 22px 18px;
+  display: flex; flex-direction: column;
+}
+.face.back { transform: rotateY(180deg); justify-content: center; gap: 14px; }
+.face h2 { margin: 14px 0 2px; font-size: 24px; letter-spacing: -.01em; }
+.face h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: .1em; color: hsl(var(--hue), 80%, 70%); }
+.tag { margin: 0 0 14px; color: hsl(var(--hue), 80%, 70%); font-size: 13px; }
+.specs { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.specs li { display: flex; justify-content: space-between; font-size: 14px; border-bottom: 1px dashed var(--edge); padding-bottom: 6px; }
+.specs span { color: var(--muted); }
+.hint { margin-top: auto; color: var(--muted); font-size: 12px; text-align: right; }
+.back p { font-size: 16px; line-height: 1.5; margin: 0; }
+.score { color: var(--muted); }
+.score b { color: hsl(var(--hue), 80%, 70%); font-size: 22px; margin-left: 6px; }
+
+/* phone silhouettes */
+.phone {
+  position: relative; width: 78px; height: 150px; margin: 6px auto 0;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #2b3144, #1a1f2c);
+  border: 2px solid rgba(255,255,255,.15);
+  transform: translateZ(40px) rotateY(-12deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,.5);
+}
+.phone .screen {
+  position: absolute; inset: 8px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, hsl(var(--hue), 80%, 55%), hsl(calc(var(--hue) + 40), 80%, 40%));
+  animation: glow 4s ease-in-out infinite alternate;
+}
+.phone .bar { position: absolute; left: 6px; right: 6px; top: 14px; height: 18px; border-radius: 9px; background: #0b0d12; box-shadow: inset 0 0 0 2px rgba(255,255,255,.1); }
+.phone .pill { position: absolute; left: 10px; top: 14px; width: 16px; height: 48px; border-radius: 10px; background: #0b0d12; }
+.phone-fold { width: 120px; }
+.phone-fold .screen { inset: 8px 8px 8px 8px; }
+.phone-fold .hinge { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; margin-left: -1.5px; background: rgba(0,0,0,.6); }
+.phone-fold .screen.outer { display: none; }
+@keyframes glow { from { filter: brightness(.9); } to { filter: brightness(1.2); } }
+
+.foot { margin-top: 40px; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.foot strong { color: var(--ink); }
+.foot a { color: var(--ink); }
+.by { font-size: 13px; }
